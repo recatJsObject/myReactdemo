@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/table.css"/>
+</head>
+<body>
+<div id="app"></div>
+</body>
+</html>
+<script src="js/react.min.js"></script>
+<script src="js/react-dom.min.js"></script>
+<script src="js/browser.js"></script>
+<script type="text/babel">
+      ReactDOM.render(
+        <h1>
+          {/* multi line comment */}
+          {/*
+            multi
+            line
+            comment
+            */}
+          {
+            // single line
+          }
+          Hello {1} plus {2} is   {3}
+          <h2>
+            {/* no space */}
+            {1}
+            plus
+            {2}
+            is
+            {3}
+          </h2>
+          <h2>
+            {/* space expressions */}
+            {1}
+            {' '}plus{' '}
+            {2}
+            {' '}is{' '}
+            {3}
+          </h2>
+          <h2>
+            {/* space glued to string expressions */}
+            {1}
+            {' plus '}
+            {2}
+            {' is '}
+            {3}
+          </h2>
+        </h1>,
+        document.getElementById('app')
+      );
+</script>

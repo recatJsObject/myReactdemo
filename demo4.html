@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/react.min.js"></script>
+    <script src="js/react-dom.min.js"></script>
+</head>
+<body>
+<div class="app"></div>
+<div class="props"></div>
+</body>
+</html>
+<script>
+    //创建多个实例 使用工厂方法
+    //此步骤我暂未理解到位
+    var ComponentFactory = React.createFactory(React.createClass({
+        render:function(){
+            return React.DOM.span({},"I'm so custom");
+        }
+    }));
+    ReactDOM.render(
+            ComponentFactory(),
+            document.getElementsByClassName("app")[0]
+    );
+    //获取到属性
+    var Component = React.createClass({
+        render:function(){
+            return React.DOM.div({
+                style:{
+                    width:"100%",
+                    height:"10rem",
+                    background:"yellow",
+                    textAlign:"center"
+                }
+            },"My name is"+this.props.name)
+        }
+    });
+    ReactDOM.render(
+            React.createElement(Component,{
+                name:"Bob"
+            }),
+            document.getElementsByClassName("props")[0]
+    );
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/react.min.js"></script>
+    <script src="js/react-dom.min.js"></script>
+</head>
+<body>
+<div id="app" class="paa"></div>
+<script>
+    //DOM组件
+    ReactDOM.render(
+            React.DOM.div({
+                id: "my-heading",
+                style:{
+                    background:"#f0f0f0",
+                    color:"#ffffff",
+                    height:"20rem",
+                    width:"100%",
+                    fontSize:"5rem",
+                    margin:"0",
+                    padding:"0"
+                }
+            },React.DOM.span({},
+                    React.DOM.strong({},"hello"),
+                    React.DOM.em({
+                        style:{
+                            textDecoration: "underline"
+                        }
+                    },"world"))),
+            document.getElementsByClassName("paa")[0]
+    );
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="state"></div>
+</body>
+</html>
+<script src="js/react.min.js"></script>
+<script src="js/react-dom.min.js"></script>
+<script>
+    //第一次接触state
+    var TextAreaCounter = React.createClass({
+        propTypes:{
+            text:React.PropTypes.string
+        },
+        getDefaultProps:function(){
+            return {
+                text:""
+            };
+        },
+        render:function(){
+            return React.DOM.div({},
+                    React.DOM.textarea({
+                        defaultValue:this.props.text
+                    }),
+                    React.DOM.h3({},this.props.text.length)
+            );
+        },
+        getInitialState:function(){
+            return {
+                text:this.props.text
+            }
+        },
+        _textChange:function(ev){
+            this.setState({
+                text:ev.target.value
+            })
+        },
+        render:function(){
+            return React.DOM.div(
+                    {},
+                    React.DOM.textarea({
+                        value:this.state.text,
+                        onChange:this._textChange
+                    }),
+                    React.DOM.h3(
+                            {},
+                            this.state.text.length
+                    )
+            )
+        }
+    });
+    var myTextAreaCounter = ReactDOM.render(
+            React.createElement(TextAreaCounter,{
+                text:"Bob"
+            }),
+            document.getElementsByClassName("state")[0]
+    );
+</script>

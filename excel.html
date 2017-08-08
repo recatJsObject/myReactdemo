@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="excel"></div>
+</body>
+</html>
+<script src="js/react.min.js"></script>
+<script src="js/react-dom.min.js"></script>
+<script>
+//excel
+/*    var header = [
+            "Book","Author","Language","Published","Sales"
+    ];
+    var data = [
+            ["The Lord of thd Rings","J.R.R.Tolkien","English","1954-1955","150 million"],
+            ["Le Petit Prince(The Little Prince)","Antoine de Saint-Exupery","French","1943","140 million"],
+            ["Harry Potter and the Philosopher's Stone","J.K.Rowling","English","1977","107 million"],
+            ["And Then There Were None","Agatha Christie","English","1939","100 million"],
+            ["Dream of the Red CHamber","Cao Xueqin","Chinese","1754-1791","100 million"],
+            ["The Hobbit","J.R.R.Tolkien","English","1937","100 million"],
+            ["She:A History of Adventure","H.Rider Haggard","English","1887","100 million"]
+    ];
+    var Excel = React.createClass({
+        render:function(){
+            return (
+                    React.DOM.table({},
+                    React.DOM.thead({},
+                    React.DOM.tr({},
+                    this.props.headers.map(function(title){
+                        return React.DOM.th({},title);
+                    })
+                    )
+                    )
+                    )
+            )
+        }
+    });
+    ReactDOM.render(React.createElement(Excel,{
+        header:header,
+        initialData:data
+    }),
+            document.getElementsByClassName("app")[0]
+    )*/
+
+
+//作者的代码
+var Excel = React.createClass({
+    // displayName: 'Excel',
+    render: function() {
+        return (
+                React.DOM.table(null,
+                        React.DOM.thead(null,
+                                React.DOM.tr(null,
+                                        this.props.headers.map(function(title, idx) {
+                                            return React.DOM.th(null, title);
+                                            // return React.DOM.th({key: idx}, title);
+                                        })
+                                )
+                        )
+                )
+        );
+    }
+});
+
+var headers = [
+    "Book", "Author", "Language", "Published", "Sales"
+];
+
+var data = [
+    ["The Lord of the Rings", "J. R. R. Tolkien", "English", "1954–1955", "150 million"],
+    ["Le Petit Prince (The Little Prince)", "Antoine de Saint-Exupéry", "French", "1943", "140 million"],
+    ["Harry Potter and the Philosopher's Stone", "J. K. Rowling", "English", "1997", "107 million"],
+    ["And Then There Were None", "Agatha Christie", "English", "1939", "100 million"],
+    ["Dream of the Red Chamber", "Cao Xueqin", "Chinese", "1754–1791", "100 million"],
+    ["The Hobbit", "J. R. R. Tolkien", "English", "1937", "100 million"],
+    ["She: A History of Adventure", "H. Rider Haggard", "English", "1887", "100 million"]
+];
+ReactDOM.render(
+        React.createElement(Excel, {
+            headers: headers,
+            initialData: data
+        }),
+        document.getElementsByClassName("excel")[0]
+);
+</script>
